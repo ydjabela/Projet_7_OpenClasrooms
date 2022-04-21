@@ -1,5 +1,5 @@
 ## Projet OpenClassrooms
-## Projet 7 Développez une interface utilisateur (un site web)
+## Projet 7 Résolvez des problèmes en utilisant des algorithmes en Python
 
 ###Description du projet :
 Ce projet consiste à optimiser les solutions des clients afin de rendre les programmes d'investissement à court terme plus compétitifs.
