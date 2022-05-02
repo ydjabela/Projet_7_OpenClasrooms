@@ -30,18 +30,18 @@ class MainMenu(Database):
         benefits_list = list()
         for i in range(len(select_table)):
             benefits_list.append(select_table[i]["benefits"])
-        i = list()
-        for j in range(0, 20):
-            i.append(j)
+        actions = list()
+        for j in range(0, len(select_table)):
+            actions.append(j)
         comb = []
-        for n in range(1, len(i)+1):
-            comb.append([i for i in combinations(i, n)])
+        for n in range(1, len(actions)+1):
+            comb.append([i for i in combinations(actions, n)])
         serialized = dict()
         i = 1
         for comm in comb:
             for x in comm:
                 total_costs = self.total_cost(select_table=select_table, select_action_id=x)
-                if total_costs >= 500:
+                if total_costs > 500:
                     pass
                 else:
                     total_binef = self.total_benifits(select_table=select_table, select_action_id=x)
