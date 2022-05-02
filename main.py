@@ -1,4 +1,4 @@
-from controller.controller import MainMenu
+from controller.bruteforce import MainMenu
 
 # ---------------------------------------------------------------------------------------------------------------------#
 

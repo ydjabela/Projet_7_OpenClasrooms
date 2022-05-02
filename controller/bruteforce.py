@@ -1,4 +1,3 @@
-from tinydb import TinyDB, Query
 from model.database_actions import Database
 from itertools import combinations
 
