@@ -5,22 +5,30 @@ from tinydb import TinyDB, Query
 
 class Database:
     @staticmethod
-    def database_action(
-    ):
+    def database_action(table):
+        # "Actions_details" and result_details
         db = TinyDB('actions.json')
-        table = db.table("Actions_details")
+        table = db.table(table)
         select_table = table.all()
         return select_table, table
 
-    def update_database(self):
-        select_table, table = self.database_action()
+    def update_database(self, table="Actions_details", serialized=None):
+        select_table, table = self.database_action(table=table)
         actions = Query()
-        # update benifits
-        for i in range(len(select_table)):
-            value = float(select_table[i]["cost"])*float(select_table[i]["percentage"])/100
-            action_nom_selected = select_table[i]['name']
-            print("Benefits:", action_nom_selected, "est de :", value)
-            table.update(
-                {"benefits": value},
-                actions.name == action_nom_selected
-            )
+        if table == "Actions_details":
+            # update benifits
+            for i in range(len(select_table)):
+                value = float(select_table[i]["cost"])*float(select_table[i]["percentage"])/100
+                action_nom_selected = select_table[i]['name']
+                print("Benefits:", action_nom_selected, "est de :", value)
+                table.update(
+                    {"benefits": value},
+                    actions.name == action_nom_selected
+                )
+        else:
+            db = TinyDB('actions.json')
+            table = db.table('result_details')
+            table.truncate()
+            table.insert(serialized)
+
+
