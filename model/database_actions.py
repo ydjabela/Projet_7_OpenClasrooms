@@ -13,7 +13,9 @@ class Database:
         return select_table, table
 
     def update_database(self, table="Actions_details", serialized=None):
-        select_table, table = self.database_action(table=table)
+        db = TinyDB('actions.json')
+        table = db.table(table)
+        select_table = table.all()
         actions = Query()
         if table == "Actions_details":
             # update benifits
@@ -26,8 +28,6 @@ class Database:
                     actions.name == action_nom_selected
                 )
         else:
-            db = TinyDB('actions.json')
-            table = db.table('result_details')
             table.truncate()
             table.insert(serialized)
 
