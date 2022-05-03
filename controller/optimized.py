@@ -26,6 +26,7 @@ class Optimized(Database):
         total_binef = 0
         total_costs = 0
         i = 1
+        # Algorithme glouton
         for j in select_table_sort:
             if total_costs + float(j["cost"]) <= 500:
                 actions.append(i)
