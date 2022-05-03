@@ -8,7 +8,7 @@ def start_programme():
     if __name__ == "__main__":
 
         # brute force excution
-        BruteForce().excution_bruteforce()
+        # BruteForce().excution_bruteforce()
 
         # optimized file
         Optimized().excution_optimized()

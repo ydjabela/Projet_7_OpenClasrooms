@@ -32,7 +32,7 @@ class BruteForce(Database):
         # start time excution
         time_start = time.time()
 
-        # update benifts
+        # update binefts
         # self.update_database(table="Actions_details")
 
         # Récupération des données
@@ -69,7 +69,7 @@ class BruteForce(Database):
         max_key = max(serialized, key=lambda key: serialized[key]["total_binef"])
         print()
         print(serialized[max_key])
-        # sauvegarde des resultats dans la base de données
+        # sauvegarde des résultats dans la base de données
         self.update_database(table="bruteforce_result", serialized=serialized[max_key])
         # Temps d'execution
         time_excution = time.time() - time_start
