@@ -39,14 +39,9 @@ class BruteForce(Database):
         select_table, table = self.database_action(table="Actions_details")
 
         # creation d'une liste d'indice d'action
-        actions = list()
-        for j in range(0, len(select_table)):
-            actions.append(j)
+        actions = [j for j in range(0, len(select_table))]
         # list des combinaisons possibles pour n composants
-        comb = []
-        for n in range(1, len(actions)+1):
-            comb.append([i for i in combinations(actions, n)])
-
+        comb = [[i for i in combinations(actions, n)] for n in range(1, len(actions)+1)]
         # Calcul du cout pour chaque combinaison
         serialized = dict()
         i = 1

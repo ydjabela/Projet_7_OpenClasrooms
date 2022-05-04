@@ -1,5 +1,4 @@
 from model.database_actions import Database
-from itertools import combinations
 import time
 
 #  --------------------------------------------------------------------------------------------------------------------#
@@ -27,11 +26,11 @@ class Optimized(Database):
         total_costs = 0
         i = 1
         # Algorithme glouton
-        for j in select_table_sort:
-            if total_costs + float(j["cost"]) <= 500:
+        for action in select_table_sort:
+            if total_costs + float(action["cost"]) <= 500:
                 actions.append(i)
-                total_costs += float(j["cost"])
-                total_binef += float(j["benefits"])
+                total_costs += float(action["cost"])
+                total_binef += float(action["benefits"])
             i += 1
         serialized = {
             'combinaison': str(actions),
