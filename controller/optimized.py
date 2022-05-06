@@ -47,11 +47,14 @@ class Optimized(Database, CsvData):
 
     def excution_optimized_sienna_data(self):
         # init
-        # Récupération des données
+
         for table in ("1", "2"):
-            # start time excution
+            # start time execution
             time_start = time.time()
+            # Récupération des données
             select_table = self.csvdata_actions(table=table)
+
+            # triage des données  par ordre de profit decroissant
             select_table_sort = sorted(select_table, key=lambda k: float(k['profit']), reverse=True)
 
             # creation d'une liste d'indice d'action
@@ -72,11 +75,10 @@ class Optimized(Database, CsvData):
                 'total_cost': total_costs,
                 'total_binef': total_binef
             }
-            print(serialized)
-            # sauvegarde des resultats dans la base de données
-            # self.update_database(table="optimized_result", serialized=serialized)
+            print('\033[93m' + 'Résultat pour  le tableau N°{}:\n'.format(table) + "\x1b[0m",  serialized)
+
             # Temps d'execution
             time_excution = time.time() - time_start
-            print("temps d'excution est de : {}".format(time_excution))
+            print('\033[93m' + "temps d'excution est de : {}".format(time_excution) + "\x1b[0m")
 
 #   -------------------------------------------------------------------------------------------------------------------#
