@@ -108,7 +108,7 @@ class Optimized(Database, CsvData):
             select_table = self.csvdata_actions(table=table)
 
             # triage des données  par ordre de profit decroissant
-            select_table_sort = sorted(select_table, key=lambda k: float(k['profit']), reverse=True)
+            select_table_sort = sorted(select_table, key=lambda k: (float(k['profit'])*float(k['price'])), reverse=True)
 
             # creation d'une liste d'indice d'action
             actions = list()
@@ -121,7 +121,7 @@ class Optimized(Database, CsvData):
                 elif total_costs + float(action["price"]) <= 500:
                     actions.append(action["name"])
                     total_costs += float(action["price"])
-                    total_binef += float(action["profit"])
+                    total_binef += float(action["profit"])*float(action["price"])/100
 
             serialized = {
                 'combinaison': actions,
