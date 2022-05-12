@@ -89,12 +89,12 @@ class Optimized(Database, CsvData):
             'total_cost': total_costs,
             'total_binef': total_binef
         }
-        print(serialized)
+        print('\033[93m' + 'Résultat pour  le tableau N°0:\n' + "\x1b[0m",  serialized)
         # sauvegarde des resultats dans la base de données
         self.update_database(table="optimized_result", serialized=serialized)
         # Temps d'execution
         time_excution = time.time() - time_start
-        print("temps d'excution est de : {}".format(time_excution))
+        print('\033[93m' + "temps d'excution est de : {}".format(time_excution) + "\x1b[0m")
 
 #   -------------------------------------------------------------------------------------------------------------------#
 
