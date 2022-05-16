@@ -44,8 +44,20 @@ pip install -r requirements.txt
 
 #### pour exécuter le scraper complet
 
-Pour lancer le projet : ``` python main.py  ``` et laissez-vous guider !
+Pour lancer le projet : 
+``` python bruteforce.py  ``` et pour lancer le script bruteforce !
+``` python optimized.py  ``` et pour lancer le script optimisé !
 
+###Vérifier la qualité du code :
+
+installer flake8-html
+
+``` pip install flake8-html ```
+
+Pour lancer la vérification de la qualité du code : 
+```
+flake8 --format=html --htmldir=flake-report --exclude=env --max-line-length=119
+```
 ### Contributeurs
 - Yacine Djabela 
 - Stephane Didier
