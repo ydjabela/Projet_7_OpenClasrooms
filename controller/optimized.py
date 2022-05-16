@@ -72,7 +72,11 @@ class Optimized(Database, CsvData):
 
         # Récupération des données
         select_table, table = self.database_action(table="Actions_details")
-        select_table_sort = sorted(select_table, key=lambda k: k['benefits'], reverse=True)
+        select_table_sort = sorted(
+            select_table,
+            key=lambda k: k['benefits'],
+            reverse=True
+        )
 
         # creation d'une liste d'indice d'action
         actions = list()
@@ -108,7 +112,11 @@ class Optimized(Database, CsvData):
             select_table = self.csvdata_actions(table=table)
 
             # triage des données  par ordre de profit decroissant
-            select_table_sort = sorted(select_table, key=lambda k: (float(k['profit'])*float(k['price'])), reverse=True)
+            select_table_sort = sorted(
+                select_table,
+                key=lambda k: (float(k['profit'])*float(k['price'])),
+                reverse=True
+            )
 
             # creation d'une liste d'indice d'action
             actions = list()
